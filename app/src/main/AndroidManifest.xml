@@ -28,6 +28,12 @@
         <activity
             android:name=".SignUpActivity"
             android:label="SignUp" />
+        <activity
+            android:name=".ArticleActivity"
+            android:label="Article View" />
+        <activity
+            android:name=".NewArticleActivity"
+            android:label="New Article" />
     </application>
 
 </manifest>

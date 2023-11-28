@@ -6,4 +6,11 @@
     <string name="action_sign_in">로그인</string>
     <string name="action_sign_up">회원가입</string>
     <string name="action_sign_out">로그아웃</string>
+    <string-array name="spinner_array">
+        <item>전체</item>
+        <item>판매 중</item>
+        <item>판매 완료</item>
+        <item>해당 가격 아래</item>
+        <item>해당 가격 이상</item>
+    </string-array>
 </resources>
