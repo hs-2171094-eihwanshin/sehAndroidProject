@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Input
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,7 +33,9 @@ class MyAdapter(private var items: List<Article>) : RecyclerView.Adapter<MyAdapt
         val isSold = v.findViewById<TextView>(R.id.isSold)
         init {
             v.setOnClickListener {
-                Toast.makeText(v.context, id.text, Toast.LENGTH_SHORT).show()
+                val intent = Intent(v.context, ArticleActivity::class.java)
+                intent.putExtra("id", id.text)
+                v.context.startActivity(intent)
             }
         }
     }
@@ -47,7 +47,7 @@ class MyAdapter(private var items: List<Article>) : RecyclerView.Adapter<MyAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.articleview, parent, false)
+        val view = layoutInflater.inflate(R.layout.articlelist, parent, false)
         val viewHolder = MyViewHolder(view)
         return viewHolder
     }
@@ -69,7 +69,7 @@ class MyAdapter(private var items: List<Article>) : RecyclerView.Adapter<MyAdapt
 
 }
 class MainActivity : AppCompatActivity() {
-    private var adapter: MyAdapter? = null
+    private lateinit var adapter: MyAdapter
     private var isFabOpen = false
     private var filtered = "all"
     private val db : FirebaseFirestore = Firebase.firestore
@@ -140,12 +140,6 @@ class MainActivity : AppCompatActivity() {
 
         updateList()
 
-//        Firebase.auth.currentUser?.let { it1 ->
-//            db.collection("users").document(it1.uid).get().addOnSuccessListener {
-//                findViewById<TextView>(R.id.textUID)?.text = it["name"].toString()
-//            }
-//        }
-
         findViewById<FloatingActionButton>(R.id.fab_main)?.setOnClickListener {
             if (isFabOpen) {
                 ObjectAnimator.ofFloat(findViewById<FloatingActionButton>(R.id.fab_newArticle), "translationX", 0f).apply { duration=1200; start() }
@@ -163,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<FloatingActionButton>(R.id.fab_newArticle)?.setOnClickListener {
             startActivity(
-                Intent(this, NewArticleActivity::class.java))
+                Intent(this, EditArticleActivity::class.java))
         }
 
         findViewById<FloatingActionButton>(R.id.fab_chatList)?.setOnClickListener {

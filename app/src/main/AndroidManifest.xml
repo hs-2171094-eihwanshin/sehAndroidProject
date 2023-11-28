@@ -32,7 +32,7 @@
             android:name=".ArticleActivity"
             android:label="Article View" />
         <activity
-            android:name=".NewArticleActivity"
+            android:name=".EditArticleActivity"
             android:label="New Article" />
     </application>
 
