@@ -45,8 +45,11 @@ class ArticleActivity : AppCompatActivity() {
                 if(Firebase.auth.currentUser?.uid == map["uid"].toString()) {
                     btn.text = "수정하기"
                     btn.setOnClickListener {
-                        startActivity(
-                            Intent(this, EditArticleActivity::class.java))
+                        val intent1 = Intent(this, EditArticleActivity::class.java)
+                        intent1.putExtra("type", "edit")
+                        intent1.putExtra("id", intent.getStringExtra("id"))
+                        startActivity(intent1)
+                        finish()
                     }
                 }
                 else {

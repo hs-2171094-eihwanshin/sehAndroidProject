@@ -33,7 +33,7 @@
             android:label="Article View" />
         <activity
             android:name=".EditArticleActivity"
-            android:label="New Article" />
+            android:label="Add/Edit Article" />
     </application>
 
 </manifest>
