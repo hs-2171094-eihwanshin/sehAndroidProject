@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">sehAndroidProject</string>
-    <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="action_sign_up">Sign up</string>
-    <string name="action_sign_out">Sign out</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="prompt_password">비밀번호</string>
+    <string name="prompt_nickname">이름</string>
+    <string name="action_sign_in">로그인</string>
+    <string name="action_sign_up">회원가입</string>
+    <string name="action_sign_out">로그아웃</string>
 </resources>

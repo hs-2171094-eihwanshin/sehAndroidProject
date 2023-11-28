@@ -22,9 +22,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.signup)?.setOnClickListener {
-            val userEmail = findViewById<EditText>(R.id.username)?.text.toString()
-            val password = findViewById<EditText>(R.id.password)?.text.toString()
-            createUser(userEmail, password)
+            startActivity(
+                Intent(this, SignUpActivity::class.java)
+            )
+            finish()
         }
     }
 
@@ -38,21 +39,6 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     Log.w("LoginActivity", "signInWithEmail", it.exception)
-                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    private fun createUser(userEmail : String, password : String) {
-        Firebase.auth.createUserWithEmailAndPassword(userEmail, password)
-            .addOnCompleteListener(this) {
-                if(it.isSuccessful) {
-                    startActivity(
-                        Intent(this, MainActivity::class.java)
-                    )
-                    finish()
-                } else {
-                    Log.w("LoginActivity", "createUserEmail", it.exception)
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }
