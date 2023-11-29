@@ -6,6 +6,7 @@
     <string name="action_sign_in">로그인</string>
     <string name="action_sign_up">회원가입</string>
     <string name="action_sign_out">로그아웃</string>
+    <string name="chat_title">판매자 %1$s에게  %2$s가 메세지</string>
     <string-array name="spinner_array">
         <item>전체</item>
         <item>판매 중</item>

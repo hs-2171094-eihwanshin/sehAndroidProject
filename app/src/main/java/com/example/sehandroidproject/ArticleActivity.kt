@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,9 +16,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-private val db : FirebaseFirestore = Firebase.firestore
-private val itemCollectionRef = db.collection("article")
 class ArticleActivity : AppCompatActivity() {
+    private val db : FirebaseFirestore = Firebase.firestore
+    private val itemCollectionRef = db.collection("article")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
@@ -55,7 +56,30 @@ class ArticleActivity : AppCompatActivity() {
                 else {
                     btn.text = "판매자와 채팅하기"
                     btn.setOnClickListener {
-
+                        if(map["isSold"] as Boolean) {
+                            Toast.makeText(this, "해당 제품은 판매되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                        else {
+                            val intent1 = Intent(this, ChatActivity::class.java)
+                            db.collection("ChatRoom").document(intent.getStringExtra("id") ?: "")
+                                .get().addOnSuccessListener {
+                                if (it.exists()) {
+                                    intent1.putExtra("id", intent.getStringExtra("id"))
+                                    startActivity(intent1)
+                                } else {
+                                    intent1.putExtra("id", intent.getStringExtra("id"))
+                                    val itemMap = hashMapOf(
+                                        "customerUid" to Firebase.auth.currentUser?.uid,
+                                        "sellerUid" to map["uid"].toString()
+                                    )
+                                    db.collection("ChatRoom")
+                                        .document(intent.getStringExtra("id") ?: "").set(itemMap)
+                                        .addOnCompleteListener {
+                                            startActivity(intent1)
+                                        }
+                                }
+                            }
+                        }
                     }
                 }
             }

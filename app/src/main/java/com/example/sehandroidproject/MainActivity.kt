@@ -23,9 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-//중고물품 판매 글 보기/등록/수정 기능, 판매 글에는 최소한 판매자, 제목, 내용, 가격, 판매여부를 포함할 것, 그림 업로드 구현은 필수는 아니지만, 글은 반드시 파이어베이스 DB에 저장되어야 함
-//판매자와 구매 희망자 간에 메시지 보내기 기능, DB활용하여 구현
-
 class MyAdapter(private var items: List<Article>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val id = v.findViewById<TextView>(R.id.id)
@@ -165,7 +162,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<FloatingActionButton>(R.id.fab_chatList)?.setOnClickListener {
             startActivity(
-                Intent(this, LoginActivity::class.java))
+                Intent(this, ChatListActivity::class.java))
         }
 
         findViewById<FloatingActionButton>(R.id.fab_logout)?.setOnClickListener {
@@ -195,7 +192,7 @@ class MainActivity : AppCompatActivity() {
                 ) { items.add(Article(doc)) }
 
             }
-            adapter?.updateList(items)
+            adapter.updateList(items)
         }
     }
 }

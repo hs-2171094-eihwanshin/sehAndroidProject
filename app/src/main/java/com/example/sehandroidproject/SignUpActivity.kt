@@ -36,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
             val birth = "$birth1-$birth2-$birth3"
             if(userEmail == "") { Toast.makeText(this, "email을 입력해주세요.", Toast.LENGTH_SHORT).show() }
             else if(password == "") { Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show() }
+            else if(password.length <= 5) { Toast.makeText(this, "비밀번호는 최소 6자리 입력해주세요.", Toast.LENGTH_SHORT).show() }
             else if(nickname == "") { Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show() }
             else if(birth1 == "" || birth2 == "" || birth3 == "") { Toast.makeText(this, "생년월일을 입력해주세요.", Toast.LENGTH_SHORT).show() }
             else { createUser(userEmail, password, nickname, birth) }
