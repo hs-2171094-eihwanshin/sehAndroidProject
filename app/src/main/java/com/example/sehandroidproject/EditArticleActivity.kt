@@ -28,6 +28,8 @@ class EditArticleActivity : AppCompatActivity() {
 
         val intent1 = intent.getStringExtra("type")
         if(intent1 == "add") {
+            isSold.isEnabled = false
+            isSold.alpha = 0F
             btn.setOnClickListener {
                 if(title.text.toString() == "") { Toast.makeText(this, "제목을 입력해주세요.", Toast.LENGTH_SHORT).show() }
                 else if(content.text.toString() == "") { Toast.makeText(this, "내용을 입력해주세요.", Toast.LENGTH_SHORT).show() }
