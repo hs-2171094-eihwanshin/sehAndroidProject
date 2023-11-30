@@ -48,7 +48,18 @@ class ChatAdapter(private var items: List<ChatRoom>) : RecyclerView.Adapter<Chat
         holder.id.text = items[position].id
         Firebase.firestore.collection("users").document(items[position].sellerUid).get().addOnSuccessListener {
             Firebase.firestore.collection("users").document(items[position].customerUid).get().addOnSuccessListener { it2 ->
-                holder.title.text = holder.itemView.context.getString(R.string.chat_title, it["name"].toString(), it2["name"].toString())
+                if(items[position].sellerUid == Firebase.auth.currentUser?.uid) {
+                    holder.title.text = holder.itemView.context.getString(
+                        R.string.chat_title,
+                        it2["name"].toString()
+                    )
+                }
+                else if(items[position].customerUid == Firebase.auth.currentUser?.uid) {
+                    holder.title.text = holder.itemView.context.getString(
+                        R.string.chat_title,
+                        it["name"].toString()
+                    )
+                }
             }
         }
     }
@@ -90,9 +101,9 @@ class ChatListActivity : AppCompatActivity() {
             }
             adapter.updateList(items)
             if(items.isEmpty())
-                findViewById<TextView>(R.id.text1).alpha = 1F
+                findViewById<TextView>(R.id.text1).text = "메세지가 없습니다."
             else
-                findViewById<TextView>(R.id.text1).alpha = 0F
+                findViewById<TextView>(R.id.text1).text = ""
         }
     }
 }

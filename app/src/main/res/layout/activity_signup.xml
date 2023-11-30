@@ -9,77 +9,91 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    tools:context=".LoginActivity">
+    android:background="@drawable/bg_signup"
+    tools:context=".SignUpActivity">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="37dp"
         android:text="회원가입"
         android:textAlignment="center"
-        android:textColor="#ff7f00"
+        android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/font"/>
 
     <EditText
         android:id="@+id/nickname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/prompt_nickname"
         android:imeActionLabel="@string/action_sign_in"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/edittext"/>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nickname"/>
+        app:layout_constraintTop_toBottomOf="@+id/nickname"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/edittext"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/edittext"/>
 
     <LinearLayout
         android:id="@+id/birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:paddingLeft="22dp"
-        android:paddingRight="22dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="82dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password">
@@ -90,11 +104,16 @@
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
             android:ems="10"
             android:maxLength="4"
             android:hint=" 년(4자)"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext"/>
 
         <EditText
             android:id="@+id/signBirth2"
@@ -102,11 +121,15 @@
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:ems="10"
             android:maxLength="2"
             android:hint=" 월"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext"/>
 
         <EditText
             android:id="@+id/signBirth3"
@@ -114,11 +137,15 @@
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint=" 일"
             android:maxLength="2"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext"/>
     </LinearLayout>
 
     <Button
@@ -127,17 +154,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="24dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:enabled="true"
         android:text="뒤로가기"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birth"
         app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.2"/>
+        app:layout_constraintHorizontal_bias="0.1"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:background="@drawable/button"/>
 
     <Button
         android:id="@+id/login"
@@ -145,16 +176,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="24dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:enabled="true"
         android:text="회원가입"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/birth"
         app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.8"/>
+        app:layout_constraintHorizontal_bias="0.9"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:background="@drawable/button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

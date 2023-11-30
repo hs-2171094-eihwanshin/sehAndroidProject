@@ -19,25 +19,32 @@
             android:id="@+id/select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:layout_weight="0.01"/>
         <EditText
             android:id="@+id/filterText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:hint="필터링 값 입력"
-            android:alpha="00"
-            android:inputType="none"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.01" />
+            android:hint=" 필터링 값 입력"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="none"
+            android:fontFamily="@font/font"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:background="@drawable/edittext"
+            android:layout_weight="0.4"/>
         <Button
             android:id="@+id/filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="필터적용"/>
+            android:text="필터적용"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:background="@drawable/button"
+            android:layout_weight="0.15"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -60,7 +67,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_main"
         app:layout_constraintEnd_toEndOf="@+id/fab_main"
         app:layout_constraintStart_toStartOf="@+id/fab_main"
-        app:layout_constraintTop_toTopOf="@+id/fab_main" />
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:tint="@color/white"
+        app:backgroundTint="#ff7f00"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_chatList"
@@ -72,7 +81,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_main"
         app:layout_constraintEnd_toEndOf="@+id/fab_main"
         app:layout_constraintStart_toStartOf="@+id/fab_main"
-        app:layout_constraintTop_toTopOf="@+id/fab_main" />
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:tint="@color/white"
+        app:backgroundTint="#ff7f00"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_newArticle"
@@ -84,7 +95,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_main"
         app:layout_constraintEnd_toEndOf="@+id/fab_main"
         app:layout_constraintStart_toStartOf="@+id/fab_main"
-        app:layout_constraintTop_toTopOf="@+id/fab_main" />
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:tint="@color/white"
+        app:backgroundTint="#ff7f00"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main"
@@ -95,6 +108,8 @@
         android:src="@drawable/ic_menu"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white"
+        app:backgroundTint="#ff7f00"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

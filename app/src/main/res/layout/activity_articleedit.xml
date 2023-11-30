@@ -11,14 +11,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:text="판매글 게시"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font"/>
 
     <EditText
         android:id="@+id/title"
@@ -29,10 +31,14 @@
         android:layout_marginEnd="24dp"
         android:text=""
         android:hint="제목을 입력하세요."
-        android:textSize="20dp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1"/>
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:background="@drawable/edittext"/>
 
     <EditText
         android:id="@+id/content"
@@ -45,10 +51,14 @@
         android:hint="내용을 입력하세요."
         android:lines="5"
         android:scrollHorizontally="false"
-        android:textSize="20dp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:background="@drawable/edittext"/>
 
     <EditText
         android:id="@+id/price"
@@ -61,11 +71,15 @@
         android:hint="가격을 입력하세요."
         android:lines="5"
         android:scrollHorizontally="false"
-        android:textSize="20dp"
+        android:textSize="25sp"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content"/>
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:background="@drawable/edittext"/>
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/isSold"
@@ -75,12 +89,16 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:text="판매여부"
-        android:textSize="20dp"
-        android:alpha="00"
+        android:textSize="25sp"
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price"/>
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
+        app:thumbTint="#ff7f00"
+        app:trackTint="@color/black"
+        android:background="@drawable/edittext"/>
 
     <Button
         android:id="@+id/back"
@@ -91,13 +109,18 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="24dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:enabled="true"
         android:text="뒤로가기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.2"/>
+        app:layout_constraintHorizontal_bias="0.2"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:background="@drawable/button"/>
 
     <Button
         android:id="@+id/add"
@@ -108,12 +131,17 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:enabled="true"
         android:text="게시하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.8"/>
+        app:layout_constraintHorizontal_bias="0.8"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:background="@drawable/button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

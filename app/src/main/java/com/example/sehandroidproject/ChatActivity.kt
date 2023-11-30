@@ -2,14 +2,17 @@ package com.example.sehandroidproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginEnd
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -21,7 +24,6 @@ import com.google.firebase.ktx.Firebase
 
 class ChatViewAdapter(private var items: List<Chat>) : RecyclerView.Adapter<ChatViewAdapter.MyViewHolder>() {
     class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val writer = v.findViewById<TextView>(R.id.writer)
         val content = v.findViewById<TextView>(R.id.content)
     }
 
@@ -32,19 +34,30 @@ class ChatViewAdapter(private var items: List<Chat>) : RecyclerView.Adapter<Chat
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.chat, parent, false)
-        val viewHolder = MyViewHolder(view)
-        return viewHolder
+        if(viewType == 1) {
+            val view = layoutInflater.inflate(R.layout.chat_right, parent, false)
+            val viewHolder = MyViewHolder(view)
+            return viewHolder
+        }
+        else {
+            val view = layoutInflater.inflate(R.layout.chat, parent, false)
+            val viewHolder = MyViewHolder(view)
+            return viewHolder
+        }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Firebase.firestore.collection("users").document(items[position].writerUid).get().addOnSuccessListener {
-            holder.writer.text = it["name"].toString()
+    override fun getItemViewType(position: Int): Int {
+        if(items[position].writerUid == Firebase.auth.currentUser?.uid) {
+            return 1
         }
+        return 0
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.content.text = items[position].content
     }
 

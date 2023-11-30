@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/msgbox"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/border"
-    android:paddingBottom="20dp" >
-
+    android:layout_margin="2dp">
     <TextView
-        android:layout_weight="1.6"
+        android:id="@+id/content"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:textSize="25dp"
-        android:layout_marginStart="10dp"
-        android:id="@+id/writer" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:text=""
+        android:maxEms="14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="14dp"
+        android:background="@drawable/border"
+        android:textSize="20sp"/>
 
-    <TextView
-        android:layout_weight="1.2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:textSize="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/content" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

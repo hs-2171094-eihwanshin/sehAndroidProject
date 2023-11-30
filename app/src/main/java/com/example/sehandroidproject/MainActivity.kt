@@ -57,7 +57,7 @@ class MyAdapter(private var items: List<Article>) : RecyclerView.Adapter<MyAdapt
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.id.text = items[position].id
         holder.title.text = items[position].title
-        holder.price.text = items[position].price.toString() + "￦"
+        holder.price.text = items[position].price.toString() + "원"
         if(items[position].isSold)
             holder.isSold.text = "판매 완료"
         else

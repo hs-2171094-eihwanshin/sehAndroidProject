@@ -17,14 +17,15 @@
         android:id="@+id/text1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="메세지가 없습니다"
+        android:text=""
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAlignment="center"
-        android:alpha="00"
-        />
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_back"
@@ -35,6 +36,8 @@
         android:src="@drawable/ic_back"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white"
+        app:backgroundTint="#ff7f00"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,25 +19,28 @@
         android:layout_weight="1.5"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:textSize="25dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/title" />
+        android:textSize="25sp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/title"
+        android:fontFamily="@font/font"/>
 
     <TextView
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/price" />
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/price"
+        android:fontFamily="@font/font"/>
 
     <TextView
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:id="@+id/isSold"
-        android:layout_gravity="right"
-        android:layout_marginRight="10dp"/>
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/font"/>
 
 </LinearLayout>

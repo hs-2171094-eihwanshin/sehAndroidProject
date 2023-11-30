@@ -34,7 +34,7 @@ class ArticleActivity : AppCompatActivity() {
             val map = it.data
             if (map != null) {
                 title.text = map["title"].toString()
-                price.text = map["price"].toString() + "￦"
+                price.text = map["price"].toString() + "원"
                 db.collection("users").document(map["uid"].toString()).get().addOnSuccessListener {
                     seller.text  = it["name"].toString()
                 }

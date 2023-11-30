@@ -19,6 +19,10 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+        val pw = findViewById<EditText>(R.id.password)
+
+        pw.transformationMethod = AsteriskPasswordTransformationMethod()
+
         findViewById<Button>(R.id.back)?.setOnClickListener {
             startActivity(
                 Intent(this, LoginActivity::class.java)
@@ -28,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.login)?.setOnClickListener {
             val userEmail = findViewById<EditText>(R.id.username)?.text.toString()
-            val password = findViewById<EditText>(R.id.password)?.text.toString()
+            val password = pw.text.toString()
             val nickname = findViewById<EditText>(R.id.nickname)?.text.toString()
             val birth1 = findViewById<EditText>(R.id.signBirth)?.text.toString()
             val birth2 = findViewById<EditText>(R.id.signBirth2)?.text.toString()
