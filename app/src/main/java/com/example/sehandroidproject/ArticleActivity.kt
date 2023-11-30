@@ -61,19 +61,20 @@ class ArticleActivity : AppCompatActivity() {
                         }
                         else {
                             val intent1 = Intent(this, ChatActivity::class.java)
-                            db.collection("ChatRoom").document(intent.getStringExtra("id") ?: "")
+                            val path = intent.getStringExtra("id") + Firebase.auth.currentUser?.uid
+                            db.collection("ChatRoom").document(path)
                                 .get().addOnSuccessListener {
                                 if (it.exists()) {
-                                    intent1.putExtra("id", intent.getStringExtra("id"))
+                                    intent1.putExtra("id", path)
                                     startActivity(intent1)
                                 } else {
-                                    intent1.putExtra("id", intent.getStringExtra("id"))
+                                    intent1.putExtra("id", path)
                                     val itemMap = hashMapOf(
                                         "customerUid" to Firebase.auth.currentUser?.uid,
                                         "sellerUid" to map["uid"].toString()
                                     )
                                     db.collection("ChatRoom")
-                                        .document(intent.getStringExtra("id") ?: "").set(itemMap)
+                                        .document(path).set(itemMap)
                                         .addOnCompleteListener {
                                             startActivity(intent1)
                                         }
